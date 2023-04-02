@@ -25,13 +25,12 @@ public class HelloController implements Initializable {
         clockLabel.setStyle("-fx-text-fill: green");
         clockLabel.setFont(Font.font("Classic Console", 50d));
 
-        System.out.println(Font.getFontNames());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
                 LocalDateTime localDateTime = LocalDateTime.now();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
                 clockLabel.setText(formatter.format(localDateTime));
             }
         };
